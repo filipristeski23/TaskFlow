@@ -1,4 +1,4 @@
-import SignInPage from "./pages/SignInPage";
+import HomePage from "./pages/HomePage";
 import GlobalStyles from "./styles/GlobalStyles";
 import React from "react";
 
@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <GlobalStyles />
-      <SignInPage />
+      <HomePage />
     </div>
   );
 }

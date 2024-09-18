@@ -18,6 +18,8 @@ const Input = styled.input`
   height: 3.5rem;
   width: 100%;
   padding-left: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
 
   &::placeholder {
     color: #9a9a9a;
@@ -97,13 +99,9 @@ function SignInPageForm() {
     <DivWrapper>
       <Form>
         <DivWrapperTwo>
-          <H2>Create your account</H2>
-          <H4>Sign up to enjoy the features of TaskFlow</H4>
+          <H2>Welcome</H2>
+          <H4>Log In to enjoy the features of TaskFlow</H4>
         </DivWrapperTwo>
-        <DivWrapperThree>
-          <Label htmlFor="fullName">Full Name</Label>
-          <Input type="text" name="fullName" placeholder="Full Name" required />
-        </DivWrapperThree>
         <DivWrapperThree>
           <Label htmlFor="email">Email</Label>
           <Input type="email" name="email" placeholder="Email" required />
@@ -117,9 +115,9 @@ function SignInPageForm() {
             required
           />
         </DivWrapperThree>
-        <Button type="submit">Sign Up</Button>
+        <Button type="submit">Log In</Button>
         <div>
-          <A href="www.google.com">Already have an account? Sign In</A>
+          <A href="www.google.com">Don&apos;t have an account yet? Sign Up</A>
         </div>
       </Form>
     </DivWrapper>
