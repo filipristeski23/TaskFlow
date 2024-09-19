@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import DashboardControlTab from "./DashboardControlTab";
+import DashboardAddNewItem from "./DashboardAddNewItem";
 
 const Div = styled.div`
   height: 100%;
@@ -12,6 +13,7 @@ function MainDashboard() {
   return (
     <Div>
       <DashboardControlTab />
+      <DashboardAddNewItem />
     </Div>
   );
 }

@@ -100,6 +100,7 @@ const AA = styled.a`
   text-decoration: underline;
   width: auto;
   color: black;
+  height: auto;
 `;
 
 const DivWrapperCheckReports = styled.div`

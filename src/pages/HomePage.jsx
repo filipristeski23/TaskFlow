@@ -8,6 +8,7 @@ const Div = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 `;
 
 function HomePage() {
