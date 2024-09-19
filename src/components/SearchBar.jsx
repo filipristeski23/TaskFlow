@@ -27,7 +27,6 @@ const Form = styled.form`
   padding: 0;
   margin: 0;
   border-radius: 0.625rem;
-  padding-left: 20px;
 `;
 
 const DivTwo = styled.div`
@@ -41,7 +40,7 @@ const DivFour = styled.div`
   width: 18%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   gap: 2rem;
 `;
@@ -66,9 +65,10 @@ const A = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
   border-radius: 0.625rem;
-  color: white;
   padding-top: 0.18rem;
   padding-bottom: 0.18rem;
   padding-left: 1.2rem;
