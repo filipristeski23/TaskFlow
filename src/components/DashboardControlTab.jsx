@@ -4,6 +4,7 @@ import LeftArrow from "../assets/LeftArrow.svg";
 import RightArrow from "../assets/RightArrow.svg";
 import HistoryImg from "../assets/HistoryImg.svg";
 import ReportsImg from "../assets/ReportsImg.svg";
+/* eslint-disable react/prop-types */
 
 const Div = styled.div`
   width: 100%;
@@ -117,7 +118,7 @@ const ImgNew = styled.img`
   cursor: pointer;
 `;
 
-function DashboardControlTab() {
+function DashboardControlTab({ toggleDashboardNewItemWindowOpen }) {
   return (
     <Div>
       <DivWrapper>
@@ -139,7 +140,7 @@ function DashboardControlTab() {
               <AA href="">Reports</AA>
             </DivWrapperCheckReports>
           </DivWrapperReports>
-          <A href="">New Task</A>
+          <A onClick={toggleDashboardNewItemWindowOpen}>New Task</A>
         </DivAddTask>
       </DivWrapper>
     </Div>

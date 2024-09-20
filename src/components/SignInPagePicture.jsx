@@ -1,5 +1,5 @@
 import React from "react";
-import PictureDesign from "../assets/SignInPagePictureDesign.svg";
+import NewFrameTwo from "../assets/NewFrameTwo.svg";
 import styled from "styled-components";
 
 const DivWrapper = styled.div`
@@ -22,7 +22,7 @@ const Img = styled.img`
 function SignInPagePicture() {
   return (
     <DivWrapper>
-      <Img src={PictureDesign} alt="Sign In Page Design" />
+      <Img src={NewFrameTwo} alt="Sign In Page Design" />
     </DivWrapper>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Close from "../assets/Close.svg";
+/* eslint-disable react/prop-types */
 
 const Div = styled.div`
   background-color: #e0ebf2;
@@ -12,7 +13,6 @@ const Div = styled.div`
   width: 60%;
   height: 100%;
   z-index: 9999;
-  display: none;
 `;
 
 const DivWrapper = styled.div`
@@ -113,32 +113,41 @@ const TextArea = styled.textarea`
   }
 `;
 
-function DashboardAddNewItem() {
+function DashboardAddNewItem({ isVisible, toggleDashboardNewItemWindowClose }) {
   return (
-    <Div>
-      <Img src={Close} alt="Close" />
-      <DivWrapper>
-        <Form>
-          <H4>Whats cooking?</H4>
-          <DivWrapEveryInput>
-            <Label htmlFor="">Task Name :</Label>
-            <Input type="text" placeholder="Writing Tests" />
-          </DivWrapEveryInput>
-          <DivWrapEveryInput>
-            <Label>Due Date :</Label>
-            <Input type="date" />
-          </DivWrapEveryInput>
-          <DivWrapEveryInput>
-            <Label htmlFor="">Description :</Label>
-            <TextArea
-              id="description"
-              name="description"
-              placeholder="Enter the task description here..."
-            ></TextArea>
-          </DivWrapEveryInput>
-        </Form>
-      </DivWrapper>
-    </Div>
+    <>
+      {isVisible && (
+        <Div isVisible={isVisible}>
+          <Img
+            src={Close}
+            alt="Close"
+            onClick={toggleDashboardNewItemWindowClose}
+          />
+          <DivWrapper>
+            <Form>
+              <H4>Whats cooking?</H4>
+              <DivWrapEveryInput>
+                <Label htmlFor="">Task Name :</Label>
+                <Input type="text" placeholder="Writing Tests" />
+              </DivWrapEveryInput>
+              <DivWrapEveryInput>
+                <Label>Due Date :</Label>
+                <Input type="date" />
+              </DivWrapEveryInput>
+              <DivWrapEveryInput>
+                <Label htmlFor="">Description :</Label>
+                <TextArea
+                  id="description"
+                  name="description"
+                  placeholder="Enter the task description here..."
+                ></TextArea>
+              </DivWrapEveryInput>
+            </Form>
+          </DivWrapper>
+        </Div>
+      )}
+      ;
+    </>
   );
 }
 
