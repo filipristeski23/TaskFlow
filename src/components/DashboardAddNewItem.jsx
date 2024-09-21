@@ -10,7 +10,7 @@ const Div = styled.div`
   position: fixed;
   top: 0;
   right: 0;
-  width: 60%;
+  width: 50%;
   height: 100%;
   z-index: 9999;
 `;

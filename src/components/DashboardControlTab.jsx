@@ -8,7 +8,7 @@ import ReportsImg from "../assets/ReportsImg.svg";
 
 const Div = styled.div`
   width: 100%;
-  height: 15%;
+  height: 20%;
 `;
 
 const DivWrapper = styled.div`

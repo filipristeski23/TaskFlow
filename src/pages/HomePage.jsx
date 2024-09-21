@@ -2,6 +2,7 @@ import React from "react";
 import SearchBar from "../components/SearchBar";
 import styled from "styled-components";
 import MainDashboard from "../components/MainDashboard";
+import Motivation from "../components/Motivation";
 
 const Div = styled.div`
   width: 100%;
@@ -16,6 +17,7 @@ function HomePage() {
     <Div>
       <SearchBar />
       <MainDashboard />
+      <Motivation />
     </Div>
   );
 }
