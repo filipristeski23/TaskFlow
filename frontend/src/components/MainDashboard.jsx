@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import DashboardControlTab from "./DashboardControlTab";
+import DashboardControlTabHistory from "./DashboardControlTabHistory";
 import DashboardAddNewItem from "./DashboardAddNewItem";
-import DashboardItemsSection from "./DashboardItemsSection";
+import DashboardReportsSection from "./DashboardReportsSection";
 
 const Div = styled.div`
   height: 65%;
@@ -27,10 +27,10 @@ function MainDashboard() {
 
   return (
     <Div>
-      <DashboardControlTab
+      <DashboardControlTabHistory
         toggleDashboardNewItemWindowOpen={toggleDashboardNewItemWindowOpen}
       />
-      <DashboardItemsSection></DashboardItemsSection>
+      <DashboardReportsSection></DashboardReportsSection>
       <DashboardAddNewItem
         isVisible={isVisible}
         toggleDashboardNewItemWindowClose={toggleDashboardNewItemWindowClose}
