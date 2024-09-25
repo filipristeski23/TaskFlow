@@ -118,15 +118,19 @@ const ImgNew = styled.img`
   cursor: pointer;
 `;
 
-function DashboardControlTab({ toggleDashboardNewItemWindowOpen }) {
+function DashboardControlTab({
+  toggleDashboardNewItemWindowOpen,
+  moveLeft,
+  moveRight,
+}) {
   return (
     <Div>
       <DivWrapper>
         <DivDashboard>
           <H3>Dashboard</H3>
           <DivArrows>
-            <Img src={LeftArrow} alt="Left Arrow" />
-            <Img src={RightArrow} alt="Right Arrow" />
+            <Img src={LeftArrow} alt="Left Arrow" onClick={moveLeft} />
+            <Img src={RightArrow} alt="Right Arrow" onClick={moveRight} />
           </DivArrows>
         </DivDashboard>
         <DivAddTask>

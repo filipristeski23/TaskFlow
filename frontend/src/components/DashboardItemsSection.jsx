@@ -1,11 +1,10 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styled from "styled-components";
 import EachTask from "./EachTask";
 
 const Div = styled.div`
   width: 100%;
   height: 60%;
-  overflow: hidden;
 `;
 
 const DivWrapper = styled.div`
@@ -16,13 +15,31 @@ const DivWrapper = styled.div`
   flex-direction: row;
   gap: 20px;
   overflow-x: auto;
-  overflow-y: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 `;
 
-function DashboardItemsSection() {
+const DashboardItemsSection = forwardRef((props, ref) => {
   return (
     <Div>
-      <DivWrapper>
+      <DivWrapper ref={ref}>
+        <EachTask />
+        <EachTask />
+        <EachTask />
+        <EachTask />
+        <EachTask />
+        <EachTask />
+        <EachTask />
+        <EachTask />
+        <EachTask />
+        <EachTask />
         <EachTask />
         <EachTask />
         <EachTask />
@@ -35,6 +52,8 @@ function DashboardItemsSection() {
       </DivWrapper>
     </Div>
   );
-}
+});
+
+DashboardItemsSection.displayName = "DashboardItemsSection";
 
 export default DashboardItemsSection;

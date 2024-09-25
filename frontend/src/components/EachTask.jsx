@@ -4,8 +4,8 @@ import Check from "../assets/Check.svg";
 import clock from "../assets/clock.svg";
 
 const Div = styled.div`
-  width: 255px;
-  height: auto;
+  min-width: 256px;
+  height: 225px;
   background-color: #f8dfc8;
   border-radius: 30px;
   position: relative;

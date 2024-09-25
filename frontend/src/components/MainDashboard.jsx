@@ -3,6 +3,7 @@ import styled from "styled-components";
 import DashboardControlTab from "./DashboardControlTab";
 import DashboardAddNewItem from "./DashboardAddNewItem";
 import DashboardItemsSection from "./DashboardItemsSection";
+import { useRef } from "react";
 
 const Div = styled.div`
   height: 65%;
@@ -11,7 +12,6 @@ const Div = styled.div`
   flex-direction: column;
   justify-content: space-around;
   background-color: #f8f9f7;
-  overflow: hidden;
 `;
 
 function MainDashboard() {
@@ -25,12 +25,29 @@ function MainDashboard() {
     setIsVisible(false);
   };
 
+  const itemsRef = useRef(null);
+
+  const scrollAmount = 1380;
+
+  const moveLeft = () => {
+    if (itemsRef.current) {
+      itemsRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    }
+  };
+
+  const moveRight = () => {
+    if (itemsRef.current) {
+      itemsRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
   return (
     <Div>
       <DashboardControlTab
         toggleDashboardNewItemWindowOpen={toggleDashboardNewItemWindowOpen}
+        moveLeft={moveLeft}
+        moveRight={moveRight}
       />
-      <DashboardItemsSection></DashboardItemsSection>
+      <DashboardItemsSection ref={itemsRef} />
       <DashboardAddNewItem
         isVisible={isVisible}
         toggleDashboardNewItemWindowClose={toggleDashboardNewItemWindowClose}
