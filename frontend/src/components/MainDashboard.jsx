@@ -6,7 +6,7 @@ import DashboardItemsSection from "./DashboardItemsSection";
 import { useRef } from "react";
 
 const Div = styled.div`
-  height: 65%;
+  height: 75%;
   width: 100%;
   display: flex;
   flex-direction: column;

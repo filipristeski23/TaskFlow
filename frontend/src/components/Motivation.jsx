@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const Div = styled.div`
   width: 100%;
-  height: 25%;
+  height: 15%;
   padding-bottom: 20px;
 `;
 
@@ -17,12 +17,13 @@ const DivWrapper = styled.div`
 `;
 
 const H3 = styled.h3`
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 500;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-left: 2rem;
+  padding-right: 2rem;
   text-align: center;
 `;
 

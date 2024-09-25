@@ -2,10 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import Check from "../assets/Check.svg";
 import clock from "../assets/clock.svg";
+import { useState } from "react";
+import { useEffect } from "react";
+import Tick from "../assets/tick.svg";
+import Bin from "../assets/bin.svg";
+import Edit from "../assets/Edit.svg";
 
 const Div = styled.div`
-  min-width: 256px;
-  height: 225px;
+  min-width: 440px;
+  height: auto;
   background-color: #f8dfc8;
   border-radius: 30px;
   position: relative;
@@ -17,14 +22,13 @@ const DivWrapper = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding-top: 25px;
   padding-bottom: 25px;
 `;
 
 const H4 = styled.h4`
-  font-size: 25px;
-  font-weight: 500;
+  font-size: 22px;
+  font-weight: 600;
   height: auto;
   width: 100%;
   white-space: normal;
@@ -36,14 +40,11 @@ const Img = styled.img`
 `;
 
 const ImgCheck = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
 `;
 
 const ACheck = styled.a`
-  position: absolute;
-  top: 0;
-  right: 0;
   width: 50px;
   height: 50px;
   padding: 20px;
@@ -52,15 +53,12 @@ const ACheck = styled.a`
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  margin-top: 10px;
-  margin-right: 10px;
 `;
 
 const DivTaskWrap = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  height: auto;
+  height: 100%;
 `;
 
 const H5 = styled.h5`
@@ -78,21 +76,64 @@ const ClockDiv = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  padding: 0;
+  height: auto;
+  width: auto;
+`;
+
+const H6 = styled.h5`
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: auto;
+`;
+
+const DivWrapText = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  gap: 10px;
+`;
+
+const DivWrapActions = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  height: 20%;
 `;
 
 function EachTask() {
   return (
     <Div>
       <DivWrapper>
-        <ACheck href="">
-          <ImgCheck src={Check} />
-        </ACheck>
         <DivTaskWrap>
-          <H4>Code the tasks section</H4>
-          <ClockDiv>
-            <Img src={clock} />
-            <H5>18 Feb 2024</H5>
-          </ClockDiv>
+          <DivWrapText>
+            <H4>Code the tasks section</H4>
+            <H6>
+              The text goes here The text goes here The text goes here The text
+              goes hereThe text goes hereThe text goes here The text goes here
+              The text goes here The text goes here The text goes hereThe text
+              goes hereThe text goes here The text goes here The text
+            </H6>
+            <ClockDiv>
+              <Img src={clock} />
+              <H5>18 Feb 2024</H5>
+            </ClockDiv>
+          </DivWrapText>
+          <DivWrapActions>
+            <ACheck href="">
+              <ImgCheck src={Tick} />
+            </ACheck>
+            <ACheck href="">
+              <ImgCheck src={Edit} />
+            </ACheck>
+            <ACheck href="">
+              <ImgCheck src={Bin} />
+            </ACheck>
+          </DivWrapActions>
         </DivTaskWrap>
       </DivWrapper>
     </Div>

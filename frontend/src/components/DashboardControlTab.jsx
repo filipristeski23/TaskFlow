@@ -4,6 +4,7 @@ import LeftArrow from "../assets/LeftArrow.svg";
 import RightArrow from "../assets/RightArrow.svg";
 import HistoryImg from "../assets/HistoryImg.svg";
 import ReportsImg from "../assets/ReportsImg.svg";
+import Home from "../assets/home.svg";
 /* eslint-disable react/prop-types */
 
 const Div = styled.div`
@@ -136,6 +137,7 @@ function DashboardControlTab({
         <DivAddTask>
           <DivWrapperReports>
             <DivWrapperCheckReports>
+              <ImgNew src={Home} alt="Home" />
               <AA href="">All Tasks</AA>
             </DivWrapperCheckReports>
             <DivWrapperHistory>
