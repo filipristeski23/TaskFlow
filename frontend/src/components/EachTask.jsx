@@ -4,7 +4,7 @@ import Check from "../assets/Check.svg";
 import clock from "../assets/clock.svg";
 
 const Div = styled.div`
-  max-width: 264px;
+  width: 255px;
   height: auto;
   background-color: #f8dfc8;
   border-radius: 30px;
@@ -27,6 +27,7 @@ const H4 = styled.h4`
   font-weight: 500;
   height: auto;
   width: 100%;
+  white-space: normal;
 `;
 
 const Img = styled.img`

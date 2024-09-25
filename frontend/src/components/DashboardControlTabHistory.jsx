@@ -131,6 +131,9 @@ function DashboardControlTab({ toggleDashboardNewItemWindowOpen }) {
         </DivDashboard>
         <DivAddTask>
           <DivWrapperReports>
+            <DivWrapperCheckReports>
+              <AA href="">All Tasks</AA>
+            </DivWrapperCheckReports>
             <DivWrapperHistory>
               <ImgNew src={HistoryImg} alt="History" />
               <AA href="">History</AA>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useState } from "react";
 
 const DivWrapper = styled.div`
   margin: 0;
@@ -95,16 +96,59 @@ const A = styled.a`
 `;
 
 function SignInPageForm() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("YOUR_BACKEND_URL/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Login failed");
+      }
+
+      const data = await response.json();
+      console.log("Login success:", data);
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
+  };
+
   return (
     <DivWrapper>
-      <Form>
+      <Form onSubmit={handleFormSubmit}>
         <DivWrapperTwo>
           <H2>Welcome</H2>
           <H4>Log In to enjoy the features of TaskFlow</H4>
         </DivWrapperTwo>
         <DivWrapperThree>
           <Label htmlFor="email">Email</Label>
-          <Input type="email" name="email" placeholder="Email" required />
+          <Input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+          />
         </DivWrapperThree>
         <DivWrapperThree>
           <Label htmlFor="password">Password</Label>
@@ -112,6 +156,8 @@ function SignInPageForm() {
             type="password"
             name="password"
             placeholder="Password"
+            value={formData.password}
+            onChange={handleInputChange}
             required
           />
         </DivWrapperThree>

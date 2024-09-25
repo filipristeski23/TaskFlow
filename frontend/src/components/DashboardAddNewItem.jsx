@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Close from "../assets/Close.svg";
+import { useState } from "react";
 /* eslint-disable react/prop-types */
 
 const Div = styled.div`
@@ -114,6 +115,36 @@ const TextArea = styled.textarea`
 `;
 
 function DashboardAddNewItem({ isVisible, toggleDashboardNewItemWindowClose }) {
+  const [taskName, setTaskName] = useState("");
+  const [dueDate, setDueDate] = useState("");
+  const [description, setDescription] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const newTask = {
+      taskName,
+      dueDate,
+      description,
+    };
+
+    fetch("YOUR_BACKEND_URL/api/tasks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      },
+      body: JSON.stringify(newTask),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Task added successfully:", data);
+      })
+      .catch((error) => {
+        console.error("Error adding task:", error);
+      });
+  };
+
   return (
     <>
       {isVisible && (
@@ -124,22 +155,38 @@ function DashboardAddNewItem({ isVisible, toggleDashboardNewItemWindowClose }) {
             onClick={toggleDashboardNewItemWindowClose}
           />
           <DivWrapper>
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <H4>Whats cooking?</H4>
               <DivWrapEveryInput>
                 <Label htmlFor="">Task Name :</Label>
-                <Input type="text" placeholder="Writing Tests" />
+                <Input
+                  type="text"
+                  id="taskName"
+                  value={taskName}
+                  onChange={(e) => setTaskName(e.target.value)}
+                  placeholder="Writing Tests"
+                  required
+                />
               </DivWrapEveryInput>
               <DivWrapEveryInput>
                 <Label>Due Date :</Label>
-                <Input type="date" />
+                <Input
+                  type="date"
+                  id="dueDate"
+                  value={dueDate}
+                  onChange={(e) => setDueDate(e.target.value)}
+                  required
+                />
               </DivWrapEveryInput>
               <DivWrapEveryInput>
                 <Label htmlFor="">Description :</Label>
                 <TextArea
                   id="description"
                   name="description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                   placeholder="Enter the task description here..."
+                  required
                 ></TextArea>
               </DivWrapEveryInput>
             </Form>

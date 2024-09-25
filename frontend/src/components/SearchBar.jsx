@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import SearchIcon from "../assets/SearchIcon.svg";
+import { useState } from "react";
 
 const Div = styled.div`
   width: 100%;
@@ -90,17 +91,53 @@ const Support = styled.a`
 `;
 
 function SearchBar() {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleInputChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!searchQuery) return;
+
+    try {
+      const response = await fetch("YOUR_BACKEND_URL/api/search", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query: searchQuery }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error in fetching search results");
+      }
+
+      const data = await response.json();
+      console.log("Search results:", data);
+    } catch (error) {
+      console.error("Error during search:", error);
+    }
+  };
+
   return (
     <Div>
       <DivWrapper>
-        <Form>
+        <Form onSubmit={handleFormSubmit}>
           <DivTwo>
             <Img src={SearchIcon} />
-            <Input type="text" placeholder="Search..." />
+            <Input
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={handleInputChange}
+            />
           </DivTwo>
         </Form>
         <DivFour>
-          <Support href="">Support</Support>
+          <Support href="www.gmail.com">Support</Support>
           <A href="">Sign Out</A>
         </DivFour>
       </DivWrapper>
