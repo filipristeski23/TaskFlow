@@ -1,0 +1,14 @@
+com\example\demo\DemoApplication.class
+com\example\demo\service\TaskServiceImpl.class
+com\example\demo\service\UserServiceImpl.class
+com\example\demo\service\UserService.class
+com\example\demo\service\TaskService.class
+com\example\demo\model\User.class
+com\example\demo\model\Task.class
+com\example\demo\rest\TaskController.class
+com\example\demo\repository\UserRepository.class
+com\example\demo\model\dto\UserDto.class
+com\example\demo\model\dto\TaskDto.class
+com\example\demo\repository\TaskRepository.class
+com\example\demo\rest\UserController.class
+com\example\demo\configuration\exception\RecordNotFoundException.class
