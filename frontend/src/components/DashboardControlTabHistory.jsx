@@ -4,6 +4,7 @@ import LeftArrow from "../assets/LeftArrow.svg";
 import RightArrow from "../assets/RightArrow.svg";
 import HistoryImg from "../assets/HistoryImg.svg";
 import ReportsImg from "../assets/ReportsImg.svg";
+import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 
 const Div = styled.div`
@@ -92,7 +93,7 @@ const DivWrapperHistory = styled.div`
   width: auto;
 `;
 
-const AA = styled.a`
+const StyledLink = styled(Link)`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -132,15 +133,15 @@ function DashboardControlTab({ toggleDashboardNewItemWindowOpen }) {
         <DivAddTask>
           <DivWrapperReports>
             <DivWrapperCheckReports>
-              <AA href="">All Tasks</AA>
+              <StyledLink to="/">All Tasks</StyledLink>
             </DivWrapperCheckReports>
             <DivWrapperHistory>
               <ImgNew src={HistoryImg} alt="History" />
-              <AA href="">History</AA>
+              <StyledLink to="/history">History</StyledLink>
             </DivWrapperHistory>
             <DivWrapperCheckReports>
               <ImgNew src={ReportsImg} alt="Check Reports" />
-              <AA href="">Reports</AA>
+              <StyledLink to="/reports">Reports</StyledLink>
             </DivWrapperCheckReports>
           </DivWrapperReports>
           <A onClick={toggleDashboardNewItemWindowOpen}>New Task</A>

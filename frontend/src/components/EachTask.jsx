@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import Check from "../assets/Check.svg";
 import clock from "../assets/clock.svg";
-import { useState } from "react";
-import { useEffect } from "react";
 import Tick from "../assets/tick.svg";
 import Bin from "../assets/bin.svg";
 import Edit from "../assets/Edit.svg";
+/* eslint-disable react/prop-types */
 
 const Div = styled.div`
   min-width: 440px;
@@ -105,22 +103,17 @@ const DivWrapActions = styled.div`
   height: 20%;
 `;
 
-function EachTask() {
+function EachTask({ task }) {
   return (
     <Div>
       <DivWrapper>
         <DivTaskWrap>
           <DivWrapText>
-            <H4>Code the tasks section</H4>
-            <H6>
-              The text goes here The text goes here The text goes here The text
-              goes hereThe text goes hereThe text goes here The text goes here
-              The text goes here The text goes here The text goes hereThe text
-              goes hereThe text goes here The text goes here The text
-            </H6>
+            <H4>{task.title}t</H4>
+            <H6>{task.description}</H6>
             <ClockDiv>
               <Img src={clock} />
-              <H5>18 Feb 2024</H5>
+              <H5>{task.dueDate}</H5>
             </ClockDiv>
           </DivWrapText>
           <DivWrapActions>

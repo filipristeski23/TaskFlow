@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import EachTaskHistory from "./EachTaskHistory";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const Div = styled.div`
   width: 100%;
@@ -16,14 +18,30 @@ const DivWrapper = styled.div`
 `;
 
 function DashboardHistorySection() {
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/tasks/history")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setTasks(data);
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
+  }, []);
+
   return (
     <Div>
       <DivWrapper>
-        <EachTaskHistory />
-        <EachTaskHistory />
-        <EachTaskHistory />
-        <EachTaskHistory />
-        <EachTaskHistory />
+        {tasks.map((task) => (
+          <EachTaskHistory key={task.id} task={task} />
+        ))}
       </DivWrapper>
     </Div>
   );

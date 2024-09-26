@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+/* eslint-disable react/prop-types */
 
 const DivWrapper = styled.div`
   margin: 0;
@@ -91,7 +92,7 @@ const Label = styled.label`
   font-size: 1.125rem;
 `;
 
-const A = styled.a`
+const StyledLink = styled(Link)`
   color: black;
   font-weight: 400;
   font-size: 1rem;
@@ -159,7 +160,9 @@ function LogInPageForm({ onLogin }) {
         </DivWrapperThree>
         <Button type="submit">Log In</Button>
         <div>
-          <Link to="/signup">Don&apos;t have an account yet? Sign Up</Link>
+          <StyledLink to="/signup">
+            Don&apos;t have an account yet? Sign Up
+          </StyledLink>
         </div>
       </Form>
     </DivWrapper>

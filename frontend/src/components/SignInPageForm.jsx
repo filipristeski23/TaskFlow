@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+/* eslint-disable react/prop-types */
 
 const DivWrapper = styled.div`
   margin: 0;
@@ -88,7 +89,7 @@ const Label = styled.label`
   font-size: 1.125rem;
 `;
 
-const A = styled.a`
+const StyledLink = styled(Link)`
   color: black;
   font-weight: 400;
   font-size: 1rem;
@@ -156,7 +157,7 @@ function SignInPageForm({ onSignUp }) {
         </DivWrapperThree>
         <Button type="submit">Sign Up</Button>
         <div>
-          <Link to="/">Already have an account? Sign In</Link>
+          <StyledLink to="/">Already have an account? Sign In</StyledLink>
         </div>
       </Form>
     </DivWrapper>

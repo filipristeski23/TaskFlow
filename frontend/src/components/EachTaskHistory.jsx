@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Check from "../assets/Check.svg";
 import clock from "../assets/clock.svg";
+/* eslint-disable react/prop-types */
 
 const Div = styled.div`
   max-width: 264px;
@@ -34,27 +34,6 @@ const Img = styled.img`
   height: 20px;
 `;
 
-const ImgCheck = styled.img`
-  width: 40px;
-  height: 40px;
-`;
-
-const ACheck = styled.a`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50px;
-  height: 50px;
-  padding: 20px;
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  margin-top: 10px;
-  margin-right: 10px;
-`;
-
 const DivTaskWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -79,23 +58,39 @@ const ClockDiv = styled.div`
   gap: 10px;
 `;
 
-function EachTask() {
+const DivWrapText = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  gap: 10px;
+`;
+
+const H6 = styled.h5`
+  font-size: 15px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: auto;
+`;
+
+function EachTaskHistory({ task }) {
   return (
     <Div>
       <DivWrapper>
-        <ACheck href="">
-          <ImgCheck src={Check} />
-        </ACheck>
         <DivTaskWrap>
-          <H4>Code the tasks section</H4>
-          <ClockDiv>
-            <Img src={clock} />
-            <H5>18 Feb 2024</H5>
-          </ClockDiv>
+          <DivWrapText>
+            <H4>{task.title}</H4>
+            <H6>{task.description}</H6>
+            <ClockDiv>
+              <Img src={clock} />
+              <H5>{task.dueDate}</H5>
+            </ClockDiv>
+          </DivWrapText>
         </DivTaskWrap>
       </DivWrapper>
     </Div>
   );
 }
 
-export default EachTask;
+export default EachTaskHistory;

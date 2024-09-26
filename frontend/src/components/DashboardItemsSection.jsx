@@ -36,9 +36,7 @@ const DashboardItemsSection = forwardRef((props, ref) => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch(
-          "https://gomezmig03.github.io/MotivationalAPI/en.json"
-        );
+        const response = await fetch("http://localhost:8080/user/tasks");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
