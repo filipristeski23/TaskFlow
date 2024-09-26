@@ -103,7 +103,7 @@ function SearchBar() {
     if (!searchQuery) return;
 
     try {
-      const response = await fetch("YOUR_BACKEND_URL/api/search", {
+      const response = await fetch("/task/search", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

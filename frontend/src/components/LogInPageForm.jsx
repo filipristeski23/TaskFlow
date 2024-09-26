@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const DivWrapper = styled.div`
   margin: 0;
@@ -95,11 +97,12 @@ const A = styled.a`
   font-size: 1rem;
 `;
 
-function SignInPageForm() {
+function LogInPageForm({ onLogin }) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -113,22 +116,16 @@ function SignInPageForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch("YOUR_BACKEND_URL/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
+      const success = await onLogin(formData);
+      if (success) {
+        console.log("Login success!");
+        navigate("/dashboard");
+      } else {
         throw new Error("Login failed");
       }
-
-      const data = await response.json();
-      console.log("Login success:", data);
     } catch (error) {
       console.error("Error during login:", error);
+      // Here you might want to set some error state and display it to the user
     }
   };
 
@@ -163,11 +160,11 @@ function SignInPageForm() {
         </DivWrapperThree>
         <Button type="submit">Log In</Button>
         <div>
-          <A href="www.google.com">Don&apos;t have an account yet? Sign Up</A>
+          <Link to="/signup">Don&apos;t have an account yet? Sign Up</Link>
         </div>
       </Form>
     </DivWrapper>
   );
 }
 
-export default SignInPageForm;
+export default LogInPageForm;

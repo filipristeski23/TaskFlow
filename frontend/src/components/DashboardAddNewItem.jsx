@@ -128,7 +128,7 @@ function DashboardAddNewItem({ isVisible, toggleDashboardNewItemWindowClose }) {
       description,
     };
 
-    fetch("YOUR_BACKEND_URL/api/tasks", {
+    fetch("/task", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

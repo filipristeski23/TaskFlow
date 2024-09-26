@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const DivWrapper = styled.div`
   margin: 0;
@@ -47,7 +48,7 @@ const Button = styled.button`
   border-radius: 0.625rem;
   height: 3.5rem;
   width: 100%;
-  background-color: #0066cc;
+  background-color: black;
   border: none;
   color: white;
   font-weight: 500;
@@ -112,7 +113,7 @@ function SignInPageForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch("YOUR_BACKEND_URL/api/signup", {
+      const response = await fetch("/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -173,7 +174,7 @@ function SignInPageForm() {
         </DivWrapperThree>
         <Button type="submit">Sign Up</Button>
         <div>
-          <A href="www.google.com">Already have an account? Sign In</A>
+          <Link to="/">Already have an account? Sign In</Link>
         </div>
       </Form>
     </DivWrapper>

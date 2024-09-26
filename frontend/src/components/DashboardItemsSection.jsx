@@ -1,6 +1,8 @@
 import React, { forwardRef } from "react";
 import styled from "styled-components";
 import EachTask from "./EachTask";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const Div = styled.div`
   width: 100%;
@@ -27,28 +29,40 @@ const DivWrapper = styled.div`
 `;
 
 const DashboardItemsSection = forwardRef((props, ref) => {
+  const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        const response = await fetch(
+          "https://gomezmig03.github.io/MotivationalAPI/en.json"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setTasks(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTasks();
+  }, []);
+
+  if (loading) return <p>Loading tasks...</p>;
+  if (error) return <p>Error fetching tasks: {error}</p>;
+
   return (
     <Div>
       <DivWrapper ref={ref}>
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
-        <EachTask />
+        {tasks.map((task, index) => (
+          <EachTask key={index} task={task} />
+        ))}
       </DivWrapper>
     </Div>
   );

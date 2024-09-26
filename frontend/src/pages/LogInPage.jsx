@@ -12,10 +12,10 @@ const DivWrapper = styled.div`
   width: 100%;
 `;
 
-function SignInPage() {
+function SignInPage({ onLogin }) {
   return (
     <DivWrapper>
-      <LogInPageForm />
+      <LogInPageForm onLogin={onLogin} />
       <SignInPagePicture />
     </DivWrapper>
   );
