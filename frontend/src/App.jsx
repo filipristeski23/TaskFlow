@@ -16,7 +16,7 @@ function App() {
 
   const handleLogin = async (credentials) => {
     try {
-      const response = await fetch("/user/login", {
+      const response = await fetch("http://localhost:8080/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,15 +24,18 @@ function App() {
         body: JSON.stringify(credentials),
       });
 
-      const data = await response.json();
-
       if (response.ok) {
+        const data = await response.json();
         setIsAuthenticated(true);
         console.log("Login successful:", data);
         return true;
+      } else {
+        // Log error if login fails, without trying to parse JSON
+        console.error("Login failed:", response.statusText);
+        return false;
       }
-      return false;
     } catch (error) {
+      // Catch network or parsing errors
       console.error("Login error:", error);
       return false;
     }
@@ -40,7 +43,7 @@ function App() {
 
   const handleSignUp = async (userData) => {
     try {
-      const response = await fetch("/user/register", {
+      const response = await fetch("http://localhost:8080/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,12 +52,18 @@ function App() {
       });
 
       if (response.ok) {
+        const data = await response.json();
         setIsAuthenticated(true);
+        console.log("Signup successful:", data);
         return true;
+      } else {
+        // Log error if signup fails, without trying to parse JSON
+        console.error("Signup failed:", response.statusText);
+        return false;
       }
-      return false;
     } catch (error) {
-      console.error("Sign up error:", error);
+      // Catch network or parsing errors
+      console.error("Signup error:", error);
       return false;
     }
   };

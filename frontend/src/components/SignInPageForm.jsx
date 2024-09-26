@@ -94,7 +94,7 @@ const A = styled.a`
   font-size: 1rem;
 `;
 
-function SignInPageForm() {
+function SignInPageForm({ onSignUp }) {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -111,25 +111,7 @@ function SignInPageForm() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      const response = await fetch("/user/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to sign up");
-      }
-
-      const data = await response.json();
-      console.log("Sign up success:", data);
-    } catch (error) {
-      console.error("Error during sign up:", error);
-    }
+    await onSignUp(formData);
   };
 
   return (

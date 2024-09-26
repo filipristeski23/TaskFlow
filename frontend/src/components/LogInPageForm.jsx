@@ -125,7 +125,6 @@ function LogInPageForm({ onLogin }) {
       }
     } catch (error) {
       console.error("Error during login:", error);
-      // Here you might want to set some error state and display it to the user
     }
   };
 
