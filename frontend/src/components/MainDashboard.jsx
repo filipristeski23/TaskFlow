@@ -46,80 +46,18 @@ function MainDashboard() {
     }
   };
   return (
-    <Router>
-      <Div>
-        <Routes>
-          {/* First section: Dashboard Items */}
-          <Route
-            path="/"
-            element={
-              <>
-                <DashboardControlTab
-                  toggleDashboardNewItemWindowOpen={
-                    toggleDashboardNewItemWindowOpen
-                  }
-                  moveLeft={moveLeft}
-                  moveRight={moveRight}
-                />
-                <DashboardItemsSection ref={itemsRef} />
-                <DashboardAddNewItem
-                  isVisible={isVisible}
-                  toggleDashboardNewItemWindowClose={
-                    toggleDashboardNewItemWindowClose
-                  }
-                />
-              </>
-            }
-          />
-
-          {/* Second section: Dashboard History Items */}
-          <Route
-            path="/history"
-            element={
-              <>
-                <DashboardControlTabHistory
-                  toggleDashboardNewItemWindowOpen={
-                    toggleDashboardNewItemWindowOpen
-                  }
-                  moveLeft={moveLeft}
-                  moveRight={moveRight}
-                />
-                <DashboardHistorySection ref={itemsRef} />
-                <DashboardAddNewItem
-                  isVisible={isVisible}
-                  toggleDashboardNewItemWindowClose={
-                    toggleDashboardNewItemWindowClose
-                  }
-                />
-              </>
-            }
-          />
-
-          {/* Third section: Dashboard Reports */}
-          <Route
-            path="/reports"
-            element={
-              <>
-                <DashboardControlTabReports
-                  toggleDashboardNewItemWindowOpen={
-                    toggleDashboardNewItemWindowOpen
-                  }
-                  moveLeft={moveLeft}
-                  moveRight={moveRight}
-                />
-                <DashboardReportsSection ref={itemsRef} />
-                <DashboardAddNewItem
-                  isVisible={isVisible}
-                  toggleDashboardNewItemWindowClose={
-                    toggleDashboardNewItemWindowClose
-                  }
-                />
-              </>
-            }
-          />
-        </Routes>
-      </Div>
-    </Router>
+    <Div>
+      <DashboardControlTab
+        toggleDashboardNewItemWindowOpen={toggleDashboardNewItemWindowOpen}
+        moveLeft={moveLeft}
+        moveRight={moveRight}
+      />
+      <DashboardItemsSection ref={itemsRef} />
+      <DashboardAddNewItem
+        isVisible={isVisible}
+        toggleDashboardNewItemWindowClose={toggleDashboardNewItemWindowClose}
+      />
+    </Div>
   );
 }
 

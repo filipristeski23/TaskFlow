@@ -14,6 +14,8 @@ import { useState } from "react";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  console.log("isAuthenticated state:", isAuthenticated);
+
   const handleLogin = async (credentials) => {
     try {
       const response = await fetch("http://localhost:8080/user/login", {
