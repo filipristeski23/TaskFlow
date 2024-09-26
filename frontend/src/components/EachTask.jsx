@@ -104,6 +104,36 @@ const DivWrapActions = styled.div`
 `;
 
 function EachTask({ task }) {
+      const handleCompleteTask = async () => {
+        try {
+          // Send the PUT request with true as a query parameter in the URL
+          await fetch(`http://localhost:8080/task/finished/${task.id}?completed=true`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+      
+          console.log(`Task with ID ${task.id} marked as complete.`);
+        } catch (error) {
+          console.error("Error sending request:", error);
+        }
+      };
+      const handleDeleteTask = async () => {
+        try {
+          // Send the PUT request with only the task ID in the URL (no query parameters)
+          await fetch(`http://localhost:8080/task/${task.id}`, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+      
+          console.log(`Task with ID ${task.id} marked for deletion.`);
+        } catch (error) {
+          console.error("Error sending request:", error);
+        }
+      };
   return (
     <Div>
       <DivWrapper>
@@ -117,13 +147,13 @@ function EachTask({ task }) {
             </ClockDiv>
           </DivWrapText>
           <DivWrapActions>
-            <ACheck href="">
+          <ACheck onClick={handleCompleteTask}>
               <ImgCheck src={Tick} />
             </ACheck>
             <ACheck href="">
               <ImgCheck src={Edit} />
             </ACheck>
-            <ACheck href="">
+            <ACheck onClick={handleDeleteTask}>
               <ImgCheck src={Bin} />
             </ACheck>
           </DivWrapActions>

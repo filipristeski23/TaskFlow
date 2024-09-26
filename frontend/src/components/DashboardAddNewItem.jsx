@@ -122,26 +122,32 @@ function DashboardAddNewItem({ isVisible, toggleDashboardNewItemWindowClose }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    const formattedDueDate = dueDate + "T00:00:00";
+
+    console.log("Due date: ", formattedDueDate);
+
     const newTask = {
       taskName,
-      dueDate,
+      dueDate: formattedDueDate,
       description,
     };
 
-    fetch("/task", {
+    fetch("http://localhost:8080/task", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newTask),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Task added successfully:", data);
-      })
-      .catch((error) => {
-        console.error("Error adding task:", error);
-      });
+      body: JSON.stringify(newTask), // Sending the task data
+    });
+
+    // You can still log the task data to ensure it's being sent
+    console.log("Task data sent:", newTask);
+
+    // Optionally, you can reset the form or close the modal after sending
+    setTaskName("");
+    setDueDate("");
+    setDescription("");
+    toggleDashboardNewItemWindowClose();
   };
 
   return (
@@ -188,6 +194,8 @@ function DashboardAddNewItem({ isVisible, toggleDashboardNewItemWindowClose }) {
                   required
                 ></TextArea>
               </DivWrapEveryInput>
+              <button type="submit">Add Task</button>
+          
             </Form>
           </DivWrapper>
         </Div>

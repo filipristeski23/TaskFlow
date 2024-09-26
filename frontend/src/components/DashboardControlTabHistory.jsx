@@ -133,15 +133,15 @@ function DashboardControlTab({ toggleDashboardNewItemWindowOpen }) {
         <DivAddTask>
           <DivWrapperReports>
             <DivWrapperCheckReports>
-              <StyledLink to="/">All Tasks</StyledLink>
+              <StyledLink to="/dashboard">All Tasks</StyledLink>
             </DivWrapperCheckReports>
             <DivWrapperHistory>
               <ImgNew src={HistoryImg} alt="History" />
-              <StyledLink to="/history">History</StyledLink>
+              <StyledLink to="history">History</StyledLink>
             </DivWrapperHistory>
             <DivWrapperCheckReports>
               <ImgNew src={ReportsImg} alt="Check Reports" />
-              <StyledLink to="/reports">Reports</StyledLink>
+              <StyledLink to="reports">Reports</StyledLink>
             </DivWrapperCheckReports>
           </DivWrapperReports>
           <A onClick={toggleDashboardNewItemWindowOpen}>New Task</A>
