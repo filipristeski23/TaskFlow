@@ -95,7 +95,7 @@ function App() {
           }
         />
         <Route
-          path="/dashboard"
+          path="/dashboard/*"
           element={isAuthenticated ? <HomePage /> : <Navigate to="/" replace />}
         />
       </Routes>

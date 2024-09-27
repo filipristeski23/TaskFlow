@@ -114,6 +114,19 @@ const TextArea = styled.textarea`
   }
 `;
 
+const Button = styled.button`
+  border-radius: 0.625rem;
+  height: 3.5rem;
+  width: 100%;
+  background-color: black;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+`;
+
 function DashboardAddNewItem({ isVisible, toggleDashboardNewItemWindowClose }) {
   const [taskName, setTaskName] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -194,7 +207,7 @@ function DashboardAddNewItem({ isVisible, toggleDashboardNewItemWindowClose }) {
                   required
                 ></TextArea>
               </DivWrapEveryInput>
-              <button type="submit">Add Task</button>
+              <Button type="submit">Add Task</Button>
           
             </Form>
           </DivWrapper>

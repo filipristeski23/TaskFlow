@@ -21,7 +21,7 @@ function DashboardHistorySection() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    fetch("/api/tasks/history")
+    fetch("http://localhost:8080/task/history")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

@@ -36,7 +36,7 @@ const DashboardItemsSection = forwardRef((props, ref) => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch("http://localhost:8080/task");
+        const response = await fetch("http://localhost:8080/task/active");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
